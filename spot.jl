@@ -1,3 +1,5 @@
+## JULIASPOT ## The Julia Implementation of the Spot Linear Algebra Package
+
 abstract opSpot
 
 # Spot level functions
