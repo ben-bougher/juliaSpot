@@ -1,6 +1,8 @@
-# Loading spot class files
+# Loading all spot class files contained within this directory
 load("spot.jl")
 
-# Loading spot operators
-load("opMatrix.jl")
-load("opKron.jl")
+for file in readlines(`find . -name *.jl`)
+    if chomp(file) != "./startup.jl" && chomp(file) != "./spot.jl"
+        load(chomp(file))
+    end
+end
