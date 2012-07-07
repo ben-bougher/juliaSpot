@@ -29,7 +29,7 @@ type opKron <:opSpot
                 opList[i] = opMatrix(opList[i])
             end
             if length(size(opList[i])) > 1
-                mi, ni = size(opList[i])
+                mi, ni = size(opList[i])h
             else # tuple case
                 mi = size(opList[i],1)
                 ni = 1
@@ -42,6 +42,18 @@ type opKron <:opSpot
         return new(m,n,"opKron",opList,[1 2])
     end # opKron constructor
 end
+
+function char(op::opKron)
+    str = ["Kron(", char(op.children[1])]
+
+    # Get operators
+    for i = 2:length(op.children)
+        str = strcat(str,[", ",char(op.children[i])])
+    end
+    str = strcat(str,")")
+
+    return str
+end # Char
 
 function multiply(op::opKron,x,mode::Int64)
     # The Kronecker product (KP) is applied to the right-hand matrix
