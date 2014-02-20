@@ -20,7 +20,6 @@ end
 ##################################################
 #Both are opSpot
 function *(op1::opSpot, op2::opSpot)
-	println("LOL")
     return opFoG(op1,op2)
 end
 
