@@ -4,17 +4,31 @@ abstract opSpot
 
 # Spot level functions
 
-# size
-function size(A::opSpot)
+# Base.size
+function Base.size(A::opSpot)
     return A.m,A.n
 end
 
-# length
-function length(A::opSpot)
+# Base.length
+function Base.length(A::opSpot)
     return max(A.m,A.n)
 end
 
-# Multiplication frontend
-function *(op::opSpot, x)
-    return multiply(op,x,1)
+
+##################################################
+##### Multiplication frontend                #####
+##################################################
+#Both are opSpot
+function *(op1::opSpot, op2::opSpot)
+	println("LOL")
+    return opFoG(op1,op2)
 end
+
+#Only one is opSpot
+function *(op::opSpot, x)
+    return opFoG(op,x)
+end
+function *(x,op::opSpot)
+    return opFoG(op,x)
+end
+
