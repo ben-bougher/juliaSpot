@@ -1,5 +1,5 @@
 ###########################################################################
-# opMatrix opMatrix opMatrix opMatrix opMatrix opMatrix opMatrix opMatrix #
+#####                              opFoG                              #####
 ###########################################################################
 type opFoG <: opSpot
 
@@ -18,12 +18,13 @@ type opFoG <: opSpot
 
     function opFoG(A::opSpot,b)
 		# Input matrices are immediately cast as opMatrix's.
-        if isa(b,Array{Int,}) || isa(b,Int) #if b is vector or numeric
+        if isa(b,Array{Int,}) || isa(b,Array{Float64,}) || isa(b,Int) || isa(b,Float64)
+		#if b is vector or numeric
 			B = opMatrix(b)
 		elseif isa(b,opSpot)
 			B = b #if b is already spot
 		else
-			throw(ArgumentError())
+			throw(ArgumentError("Input type not recognized"))
 		end
 		
 		# Check operator consistency and complexity

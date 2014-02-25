@@ -29,7 +29,7 @@ type opKron <:opSpot
                 opList[i] = opMatrix(opList[i])
             end
             if length(size(opList[i])) > 1
-                mi, ni = size(opList[i])h
+                mi, ni = size(opList[i])
             else # tuple case
                 mi = size(opList[i],1)
                 ni = 1
