@@ -2,6 +2,7 @@
 =========
 
 ##The Julia implementation of the Spot Linear Algebra Package
+Tested on julia -v0.2.0
 
 ##To Start it:
 1. Start Julia

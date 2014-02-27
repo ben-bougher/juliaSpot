@@ -1,5 +1,5 @@
 ###########################################################################
-#####                           opCTranspose                          #####
+#####                           opTranspose                           #####
 ###########################################################################
 type opTranspose <: opSpot
 
@@ -41,7 +41,7 @@ type opTranspose <: opSpot
 		ms = A.ns
 		ns = A.ms
 		
-		return new(n,m,"opCTranspose",children,cflag,sweepflag,false,linear,ms,ns)
+		return new(n,m,"opTranspose",children,cflag,sweepflag,false,linear,ms,ns)
 		
 	end #endof Constructor
 end #endof opTranspose
@@ -62,11 +62,7 @@ end #endof opTranspose
 	
 	function multiply(op::opTranspose,x,mode)
 		A = op.children[1];
-		if mode == 1
-			return applyMultiply(A,x,2)
-		else
-			return applyMultiply(A,x,1)
-		end
+		return applyMultiply(opCTranspose(opConj(A)),x,mode)
 	end #endof multiply
 	
 	function double(op::opTranspose)

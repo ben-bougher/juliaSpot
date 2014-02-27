@@ -68,4 +68,13 @@ function double(op::opFoG)
 	return double(C1) * double(C2)
 end
 
+function multiply(op::opFoG,x,mode)
+	if mode == 1
+		y = applyMultiply(op.children[2],x,mode);
+		z = applyMultiply(op.children[1],y,mode);
+	else # mode = 2
+		y = applyMultiply(op.children[1],x,mode);
+		z = applyMultiply(op.children[2],y,mode);
+	end
+end
 

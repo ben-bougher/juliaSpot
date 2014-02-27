@@ -2,7 +2,7 @@
 include("opSpot.jl")
 
 for file in readlines(`find . -name *.jl`)
-    if chomp(file) != "./startup.jl" && chomp(file) != "./opSpot.jl"
+    if chomp(file) != "./startup.jl" && chomp(file) != "./opSpot.jl" && chomp(file) != "./testJSpot.jl"
         println(chomp(file))
         include(chomp(file))
     end

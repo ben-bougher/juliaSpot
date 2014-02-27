@@ -26,7 +26,7 @@ type opMatrix <: opSpot
         end
 		
 	    cflag=false
-	    sweepflag=false
+	    sweepflag=true
 	    isDirac=false
 	    linear=false
 	    ms={m}
@@ -43,9 +43,9 @@ end
 # Multiply ##################################
 function multiply(op::opMatrix,x,mode::Int64)
     if mode == 1
-        return op.children * x;
+        return op.matrix * x;
     else
-        return op.children' * x;
+        return op.matrix' * x;
     end
 end
 function multiply(op1::opSpot,op2::opSpot)
@@ -56,8 +56,8 @@ end
 # divide  Solve a linear system with the operator.
 function divide(op::opMatrix,b,mode)
     if mode == 1
-        return op.children \ b;
+        return op.matrix \ b;
     else
-        return op.children' \ b;
+        return op.matrix' \ b;
     end
 end # function divide
