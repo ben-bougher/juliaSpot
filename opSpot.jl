@@ -110,11 +110,10 @@ function applyMultiply(op::opSpot,x,mode)
 		if x_n == 1
 			y = multiply(op,x,mode);
 		else
-		for i=x_n:-1:1
-			y[:,i] = multiply(op,x[:,i],mode);
+			for i=x_n:-1:1
+				y[:,i] = multiply(op,x[:,i],mode);
+			end
 		end
-	end
+	end 
 	return y
 end #endof applyMultiply
-
-end #endof opSpot

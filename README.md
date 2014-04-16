@@ -2,19 +2,20 @@
 =========
 
 ##The Julia implementation of the Spot Linear Algebra Package
-Tested on julia -v0.2.1
+Tested on julia<br />
+-v0.2.0<br />
+-v0.2.1<br />
+-v0.3.0-prerelease
 
 ##To Start it:
-1. Start Julia
-2. type in: require("startup.jl")
+1. cd to juliaSpot folder and start Julia
+2. type in: require("startup.jl")<br />
 Things should be loaded properly at this point
 
 ## To Use it:
-example - opMatrix and opFoG:
+####Example: Fourier Transform Operator
 
-A = opMatrix(rand(2,3)) # creates a 2x3 random matrix wrapped in opMatrix
-B = opMatrix(rand(3,5)) # creates a 2x3 random matrix wrapped in opMatrix
+x = rand(10,1); # my data<br />
+A = opDFT(10);  # the operator
 
-C = A * B				# creates a 2x5 opFoG containing A and B as children
-
-double(C)				# display the value of the C matrix
+A * x # Do Fourier transform on x
